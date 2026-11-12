@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  html.dark body {
+    background-color: #000000;
+    color: #f3f4f6;
+  }
+
+  html.light body {
+    background-color: #f8f9fa;
+    color: #111827;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* ==========================================================================
+   Comprehensive Light Mode Theme Overrides
+   ========================================================================== */
+
+html.light {
+  /* Headings & prominent text */
+  h1, h2, h3, h4, h5, h6 {
+    color: #111827;
+  }
+
+  /* Text color corrections for elements previously forced to text-white */
+  .text-white {
+    color: #111827 !important;
+  }
+
+  /* Keep deliberate white text on colored buttons/badges */
+  .bg-red-600 .text-white,
+  .bg-red-700 .text-white,
+  .bg-green-600 .text-white,
+  .bg-blue-600 .text-white,
+  button.bg-red-600,
+  button.bg-red-700,
+  button.bg-green-600,
+  a.bg-red-600,
+  a.bg-red-700,
+  .btn-primary {
+    color: #ffffff !important;
+  }
+
+  /* Gray text contrast enhancements */
+  .text-gray-300 {
+    color: #374151 !important;
+  }
+
+  .text-gray-400 {
+    color: #4b5563 !important;
+  }
+
+  .text-gray-500 {
+    color: #6b7280 !important;
+  }
+
+  /* Card backgrounds & borders */
+  .bg-white\/\[0\.03\],
+  .bg-white\/\[0\.02\],
+  .bg-white\/\[0\.05\],
+  .bg-zinc-950,
+  .bg-gray-950 {
+    background-color: #ffffff !important;
+    border-color: #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Sub-surfaces & input backgrounds */
+  .bg-white\/5 {
+    background-color: #f3f4f6 !important;
+    border-color: #d1d5db !important;
+    color: #111827 !important;
+  }
+
+  input, select, textarea {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+  }
+
+  input::placeholder {
+    color: #9ca3af !important;
+  }
+
+  /* Border overrides */
+  .border-white\/10,
+  .border-white\/5,
+  .border-white\/20,
+  .divide-white\/5 > * {
+    border-color: #e5e7eb !important;
+  }
+
+  /* Gradient containers */
+  .from-red-950\/40,
+  .from-red-950\/30,
+  .from-red-950\/20 {
+    background: linear-gradient(135deg, #fee2e2 0%, #ffffff 100%) !important;
+    border-color: #fecaca !important;
+  }
+
+  /* Header in light mode */
+  header {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-bottom-color: #e5e7eb !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  header .text-white {
+    color: #111827 !important;
+  }
+
+  /* Top marquee bar in light mode */
+  .group:has(.animate-\[scroll-marquee_35s_linear_infinite\]) {
+    background-color: #f1f3f5 !important;
+    border-bottom-color: #e2e8f0 !important;
+  }
+
+  .group .text-gray-300 {
+    color: #1f2937 !important;
+    font-weight: 400 !important;
+  }
+
+  /* Table headers */
+  .bg-black\/60,
+  .bg-black\/70,
+  .bg-black\/80,
+  .bg-black\/90 {
+    background-color: #f9fafb !important;
+    color: #374151 !important;
+  }
+}
+
+/* Continuous Marquee Ticker Keyframes (like portfolio index.html) */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Custom glowing pulse for active arenas on the Sahiwal map */
+@keyframes red-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(188, 2, 2, 0.9);
+  }
+}
+
+.arena-pulse {
+  animation: red-glow 2s infinite ease-in-out;
+}
